@@ -10,7 +10,7 @@ const Statistics = ({ title, stats }) => {
 	return (
 		<section className={css.statistics}>
 			<h2 className={css.title}>{title}</h2>
-			<ul className={css.statList}>
+			<ul className={css.statlist}>
 				{stats.map(item => (
 					<li key={item.id} className={css.item} style={{ backgroundColor: color(item) }}>
 						<span className={css.label}>{item.label}</span>
@@ -26,12 +26,14 @@ Statistics.propTypes = {
 	title: PropTypes.string,
 	id: PropTypes.string.isRequired,
 	label: PropTypes.string.isRequired,
-	percentage: PropTypes.number.isRequired,
+	percentage: PropTypes.node.isRequired,
 };
 
 Statistics.defaultProps = {
 	title: '',
+	id: '',
 	label: 'format',
+	percentage: '0',
 };
 
 export default Statistics;
