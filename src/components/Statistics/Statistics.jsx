@@ -9,7 +9,7 @@ const color = item => {
 const Statistics = ({ title, stats }) => {
 	return (
 		<section className={css.statistics}>
-			<h2 className={css.title}>{title}</h2>
+			{title && <h2 className={css.title}>{title}</h2>}
 			<ul className={css.statlist}>
 				{stats.map(item => (
 					<li key={item.id} className={css.item} style={{ backgroundColor: color(item) }}>
@@ -22,11 +22,14 @@ const Statistics = ({ title, stats }) => {
 	);
 };
 
-Statistics.propTypes = {
-	title: PropTypes.string,
-	id: PropTypes.string.isRequired,
-	label: PropTypes.string.isRequired,
-	percentage: PropTypes.node.isRequired,
+Statistics.prototype = {
+  title: PropTypes.string,
+  stats: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      percentage: PropTypes.number.isRequired,
+    })
+  ).isRequired,
 };
 
 Statistics.defaultProps = {

@@ -1,11 +1,6 @@
 import css from './TransactionHistory.module.css';
 import PropTypes from 'prop-types';
 
-function upperFirstLetter(string) {
-	let newString = string[0].toUpperCase() + string.slice(1);
-	return newString;
-};
-
 const TransactionHistory = ({ items }) => {
 	return (
 		<div className={css.transTable}>
@@ -20,7 +15,7 @@ const TransactionHistory = ({ items }) => {
 				<tbody className={css.tableBody}>
 					{items.map(item => (
 						<tr key={item.id}>
-							<td className={css.tableData}>{upperFirstLetter(item.type)}</td>
+							<td className={css.tableData}>{item.type}</td>
 							<td className={css.tableData}>{item.amount}</td>
 							<td className={css.tableData}>{item.currency}</td>
 						</tr>
