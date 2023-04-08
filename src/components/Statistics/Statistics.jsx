@@ -23,7 +23,8 @@ const Statistics = ({ title, stats }) => {
 };
 
 Statistics.prototype = {
-  title: PropTypes.string,
+	title: PropTypes.string,
+	id: PropTypes.number.isRequired,
   stats: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string.isRequired,
